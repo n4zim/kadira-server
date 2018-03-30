@@ -1,19 +1,19 @@
 version: '2'
 services:
   kadira-engine:
-    build: ./kadira-engine
+    build: n4zim/kadira:engine
     ports:
       - "10001:80"
     environment:
       - PORT=80
       - MONGO_URL=mongodb://10.128.0.2/apm
   kadira-rma:
-    build: ./kadira-rma
+    build: n4zim/kadira:rma
     environment:
       - MONGO_SHARD=one
       - MONGO_URL=mongodb://10.128.0.2/apm
   kadira-api:
-    build: ./kadira-api
+    build: n4zim/kadira:api
     ports:
       - "10002:80"
     environment:
@@ -30,7 +30,7 @@ services:
       - TRELLO_ORG_ID=xxxxxxxxx
       - TRELLO_MAIN_BOARD_ID=xxxxxxxxx
   kadira-ui:
-    build: ./kadira-ui
+    build: n4zim/kadira:ui
     ports:
       - "10003:80"
     environment:
